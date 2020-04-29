@@ -1,3 +1,35 @@
+@import "vars";
+@import "mixin";
+@import "cycles";
+
+* {
+  box-sizing: border-box;
+}
+
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
+  height: 100vh;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, $box-day-width);
+  grid-gap: 1px;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    @include box-day;
+    @include font;
+    &:hover {
+      background-color: pink;
+      transform: translateY(-($box-day-height / 5));
+      transition: 0.5s;
+    }
+  }
 }

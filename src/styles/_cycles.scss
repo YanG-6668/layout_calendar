@@ -1,0 +1,31 @@
+@for $i from 1 through 31 {
+  .calendar {
+    div:nth-child(#{$i}) {
+      &::after {
+        content: "#{$i}";
+      }
+    }
+  }
+}
+
+@for $i from 28 through 31 {
+  .calendar-#{$i} {
+    div:nth-child(#{$i+1}) {
+      display: none;
+    }
+    div:nth-child(#{$i+2}) {
+      display: none;
+    }
+    div:nth-child(#{$i+3}) {
+      display: none;
+    }
+  }
+}
+
+@each $days, $day-start in $week {
+  .calendar-#{$days} {
+    div:first-child {
+      grid-column-start: $day-start;
+    }
+  }
+}

@@ -22,10 +22,11 @@ body {
     cursor: pointer;
     @include box-day;
     @include font;
+    transition: 0.5s;
+    
     &:hover {
       background-color: $box-background-color;
       transform: translateY(-($box-day-height / 5));
-      transition: 0.5s;
     }
   }
   &-30 div:nth-child(n + 31),

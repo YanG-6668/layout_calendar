@@ -7,9 +7,7 @@
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include box-center;
   margin: 0;
   height: 100vh;
 }
@@ -19,17 +17,20 @@ body {
   grid-template-columns: repeat(7, $box-day-width);
   grid-gap: 1px;
   div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include box-center;
 
     cursor: pointer;
     @include box-day;
     @include font;
     &:hover {
-      background-color: pink;
+      background-color: $box-background-color;
       transform: translateY(-($box-day-height / 5));
       transition: 0.5s;
     }
+  }
+  &-30 div:nth-child(n + 31),
+  &-29 div:nth-child(n + 30),
+  &-28 div:nth-child(n + 29) {
+    display: none;
   }
 }
